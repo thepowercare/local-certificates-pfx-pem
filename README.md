@@ -80,6 +80,9 @@ HTTPS development certificates successfully removed from the machine.dotnet dev-
     }
   }
 ```
+__Relative Paths:__
+
+The paths `../certs/linux-test-cert.pem` and ``../certs/linux-test-private-key.pem` are relative to the working directory **from which the application is run**, which may or may not be the project root, depending on how you launch the application.
 
 # Consume PFX in .NET
 ## application.Pfx.json
