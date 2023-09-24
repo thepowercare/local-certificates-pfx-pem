@@ -43,7 +43,7 @@ openssl pkcs12 -inkey certs/linux-test-private-key.pem -in linux-test-cert.pem -
 ### Example
 
 `root@c184ec327a2c:/workspaces/LinuxTest#` openssl pkcs12 -inkey certs/linux-test-private-key.pem -in certs/linu
-x-test-cert.pem -export -out my-dev.pfx
+x-test-cert.pem -export -out certs/my-dev.pfx
 Enter pass phrase for certs/linux-test-private-key.pem:
 Enter Export Password:
 Verifying - Enter Export Password:
@@ -65,4 +65,36 @@ __Clean__
 HTTPS development certificates successfully removed from the machine.dotnet dev-certs https --clean
 
 # Consume PEM in .NET
+## application.Pem.json
+```json
+{
+  "Kestrel": {
+    "EndPoints": {
+      "Https": {
+        "Url": "https://localhost:5001",
+        "Certificate": {
+          "Path": "../certs/linux-test-cert.pem",
+          "KeyPath": "../certs/linux-test-private-key.pem"
+        }
+      }
+    }
+  }
+```
 
+# Consume PFX in .NET
+## application.Pfx.json
+``` json
+{
+  "Kestrel": {
+    "EndPoints": {
+      "Https": {
+        "Url": "https://localhost:5001",
+        "Certificate": {
+          "Path": "../certs/my-dev.pfx",
+          "Password": "helloworld"
+        }
+      }
+    }
+  }
+}
+```
