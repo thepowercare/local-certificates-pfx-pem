@@ -3,7 +3,10 @@
 
 __Prerequisite__
 
-Running in this projects devcontainer
+1. Running in this projects devcontainer
+2. Create a folder in the root of the project named: 'certs'
+3. Update hostfile. Add.:
+          127.0.0.1       localhost # Or your projects IP and host name eg. 123.55.13.129.0.2      mydomain.ninja
 
 ## Create Self-Signed Certificate using 'openssl'
 
