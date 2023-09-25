@@ -14,7 +14,8 @@ if (-Not $Password) {
 $SecurePassword = ConvertTo-SecureString -String $Password -Force -AsPlainText
 
 # File path to the certificate (hardcoded)
-$FilePath = "./certs/my-dev.pfx"
+$FilePath = "./certs/letsgo.out.pfx"
+# $FilePath = "./certs/linux-test-cert.pem"
 
 # Import PFX Certificate into Trusted Root Certification Authorities store
 Import-PfxCertificate -FilePath $FilePath -CertStoreLocation "Cert:\LocalMachine\Root" -Password $SecurePassword

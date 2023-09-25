@@ -12,7 +12,8 @@ Create with password:
 `bash#>` openssl req -x509 -newkey rsa:4096 \
           -keyout certs/linux-test-private-key.pem \
           -out certs/linux-test-cert.pem -days 365 \
-          -subj '/CN=localhost'
+          -subj '/CN=localhost' \
+          -addext "subjectAltName = DNS:letsgo.out, DNS:localhost, IP:127.0.0.1"
 
 ### Example
 `root@03437dd68dcc:/workspaces/LinuxTest#` openssl req -x509 -newkey rsa:4096 \
@@ -38,7 +39,7 @@ Contains both the `private-key` and the `public key certificate`
 
 __Create PFX from PEM__
 
-openssl pkcs12 -inkey certs/linux-test-private-key.pem -in linux-test-cert.pem -export -out my-dev.pfx
+openssl pkcs12 -inkey certs/linux-test-private-key.pem -in certs/linux-test-cert.pem -export -out certs/my-dev.pfx
 
 ### Example
 
